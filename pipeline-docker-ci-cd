@@ -30,7 +30,7 @@ node{
   }
   stage('Deploy-Dev'){
     sshagent(['my-app-dev']) {
-      input 'Deploy  to Dev?'
+      input 'Deploy  to aws?'
       def sshCmd = 'ssh -o StrictHostKeyChecking=no ec2-user@172.31.18.198'
       def dockerRun = 'docker run -d -p 8080:8080 --name my-app deepak/my-app:0.0.1'
       sh "${sshCmd} ${dockerRun}"
